@@ -10,9 +10,19 @@ set(CMAKE_BUILD_TYPE Debug)
 
 # Add an executable
 set(SOURCE_FILES
-    main.cpp
+    src/main.cpp
+    src/Centipede.cpp
     src/Game.cpp
-    src/Grid.cpp)
+    src/render/Projection.cpp
+    src/render/GridRenderer.cpp)
+    list(APPEND SOURCE_FILES
+        src/render/DrawHelpers.cpp)
+    # Newly added modules
+    list(APPEND SOURCE_FILES
+        src/gait/GaitController.cpp
+        src/ik/LegIK.cpp)
+    list(APPEND SOURCE_FILES
+        src/input/Camera.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
